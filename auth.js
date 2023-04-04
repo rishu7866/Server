@@ -72,7 +72,7 @@ router.post('/details', upload.single("File"),  (req, res,next) => {
 
 
 
-router.get("/postview", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const postview=await User.find({}).then((data) => {
       res.json(postview)
