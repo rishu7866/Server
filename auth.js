@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage:storage });
 
-router.post('/details', upload.single("File"),  (req, res,next) => {
+router.post('/', upload.single("File"),  (req, res,next) => {
   const { Auth, Loc, Desc } = req.body;
   const like=generateOTP()
   const fulldate=`${date.getDate()} ${month[date.getMonth()]} ${date.getUTCFullYear()}`
