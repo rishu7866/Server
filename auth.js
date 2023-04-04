@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage:storage });
 
-router.post('/', upload.single("File"),  (req, res,next) => {
+router.post('/details', upload.single("File"),  (req, res,next) => {
   const { Auth, Loc, Desc } = req.body;
   const like=generateOTP()
   const fulldate=`${date.getDate()} ${month[date.getMonth()]} ${date.getUTCFullYear()}`
@@ -72,7 +72,7 @@ router.post('/', upload.single("File"),  (req, res,next) => {
 
 
 
-router.get("/", async (req, res) => {
+router.get("/postview", async (req, res) => {
   try {
     const postview=await User.find({}).then((data) => {
       res.json(postview)
